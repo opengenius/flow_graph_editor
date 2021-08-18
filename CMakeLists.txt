@@ -6,14 +6,12 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_AUTOMOC ON)
-#set(CMAKE_AUTORCC ON)
-#set(CMAKE_AUTOUIC ON)
 
 find_package(Qt6 REQUIRED Quick Qml)
 
 file(GLOB sources
-    *.h
-    *.cpp
+    src/*.h
+    src/*.cpp
 )
 
 add_executable(${CMAKE_PROJECT_NAME} WIN32 ${sources} ${qrc})
@@ -24,15 +22,15 @@ PRIVATE
 )
 
 file(GLOB resource_files
-    assets/*.qml
-    assets/*.js
+    qml/*.qml
+    qml/*.js
 )
 
 qt_add_resources(${CMAKE_PROJECT_NAME} "resources"
     PREFIX "/"
-    BASE "assets"
+    BASE "qml"
     FILES ${resource_files}
 )
 
-configure_file(assets/node_types.json ${CMAKE_CURRENT_BINARY_DIR}/node_types.json COPYONLY)
+configure_file(node_types.json ${CMAKE_CURRENT_BINARY_DIR}/node_types.json COPYONLY)
 
