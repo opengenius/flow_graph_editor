@@ -1,0 +1,21 @@
+[
+    {
+        "type": "delay",
+        "args": {
+            "time": "float"
+        },
+        "in_events": [
+            "In_1",
+            "In_2"
+        ],
+        "out_events": [
+            "Out"
+        ]
+    },
+    {
+        "type": "level_loaded",
+        "out_events": [
+            "Out"
+        ]
+    }
+]
